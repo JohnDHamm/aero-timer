@@ -70,7 +70,7 @@ exports.seed = function(knex, Promise) {
 						id: 6,
 						first_name: 'Devan',
 						last_name: 'Reilly',
-						display_name: 'Devin',
+						display_name: 'Devan',
 						age: 9,
 						group_id: 2,
 						swim_pace: 120000,
@@ -118,7 +118,7 @@ exports.seed = function(knex, Promise) {
 						id: 10,
 						first_name: 'Emily',
 						last_name: 'Butler',
-						display_name: 'Emily Micah',
+						display_name: 'EmilyMicah',
 						age: 6,
 						group_id: 3,
 						swim_pace: 135000,
@@ -196,47 +196,7 @@ exports.seed = function(knex, Promise) {
 						swim_pace: 124000,
 						bike_pace: 16.2,
 						run_pace: 595000
-					}),
-
-				// add SBR athletes
-				knex('Athletes')
-					.insert({
-						id: 17,
-						first_name: 'Bobby',
-						last_name: 'Smith',
-						display_name: 'Junior',
-						age: 11,
-						group_id: 4,
-						swim_pace: 100500,
-						bike_pace: 15.7,
-						run_pace: 492000
-					}),
-				knex('Athletes')
-					.insert({
-						id: 18,
-						first_name: 'William',
-						last_name: 'Jones',
-						display_name: 'Jonesy',
-						age: 12,
-						group_id: 4,
-						swim_pace: 100500,
-						bike_pace: 16.2,
-						run_pace: 497000
-					}),
-				knex('Athletes')
-					.insert({
-						id: 19,
-						first_name: 'Bobby',
-						last_name: 'Ford',
-						display_name: 'Bobby F.',
-						age: 10,
-						group_id: 4,
-						swim_pace: 100500,
-						bike_pace: 16.2,
-						run_pace: 545000
 					})
-
-
 			]);
 		});
 };

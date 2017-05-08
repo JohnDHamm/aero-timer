@@ -5,14 +5,14 @@ exports.seed = function(knex, Promise) {
 		.then(function () {
 			return Promise.all([
 
-				//AERO workout #1 5x1mi run, CoachJen - HPT
+				//AERO workout #1 5x1mi run, CoachTest - HPT
 				knex('Workouts')
 					.insert({
 						id: 1,
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
-						coach_id: 1,
+						coach_id: 4,
 						laps: 5,
 						lap_distance: 1,
 						lap_metric: 'mile',
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
-						coach_id: 1,
+						coach_id: 4,
 						laps: 5,
 						lap_distance: 1,
 						lap_metric: 'mile',
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
-						coach_id: 1,
+						coach_id: 4,
 						laps: 5,
 						lap_distance: 1,
 						lap_metric: 'mile',
@@ -51,7 +51,7 @@ exports.seed = function(knex, Promise) {
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
-						coach_id: 1,
+						coach_id: 4,
 						laps: 5,
 						lap_distance: 1,
 						lap_metric: 'mile',
@@ -64,7 +64,7 @@ exports.seed = function(knex, Promise) {
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
-						coach_id: 1,
+						coach_id: 4,
 						laps: 5,
 						lap_distance: 1,
 						lap_metric: 'mile',
@@ -72,14 +72,14 @@ exports.seed = function(knex, Promise) {
 						data: '530000,566000,534000,505450,570000'
 					}),
 
-				//AERO workout #2 4x2mi bike, CoachJeff  - Comp
+				//AERO workout #2 4x2mi bike, CoachTest  - Comp
 				knex('Workouts')
 					.insert({
 						id: 6,
 						description: '4 x 2 mi build',
 						discipline: 'bike',
 						date: '1474226580000',
-						coach_id: 2,
+						coach_id: 4,
 						laps: 4,
 						lap_distance: 2,
 						lap_metric: 'mile',
@@ -92,7 +92,7 @@ exports.seed = function(knex, Promise) {
 						description: '4 x 2 mi build',
 						discipline: 'bike',
 						date: '1474226580000',
-						coach_id: 2,
+						coach_id: 4,
 						laps: 4,
 						lap_distance: 2,
 						lap_metric: 'mile',
@@ -105,7 +105,7 @@ exports.seed = function(knex, Promise) {
 						description: '4 x 2 mi build',
 						discipline: 'bike',
 						date: '1474226580000',
-						coach_id: 2,
+						coach_id: 4,
 						laps: 4,
 						lap_distance: 2,
 						lap_metric: 'mile',
@@ -118,7 +118,7 @@ exports.seed = function(knex, Promise) {
 						description: '4 x 2 mi build',
 						discipline: 'bike',
 						date: '1474226580000',
-						coach_id: 2,
+						coach_id: 4,
 						laps: 4,
 						lap_distance: 2,
 						lap_metric: 'mile',
@@ -127,14 +127,14 @@ exports.seed = function(knex, Promise) {
 					}),
 
 
-				//AERO workout #3 10x100m, CoachJen, all Dev
+				//AERO workout #3 10x100m, CoachTest, all Dev
 				knex('Workouts')
 					.insert({
 						id: 10,
 						description: '10 x 100m tempo',
 						discipline: 'run',
 						date: '1474838220000',
-						coach_id: 1,
+						coach_id: 4,
 						laps: 10,
 						lap_distance: 100,
 						lap_metric: 'meter',
@@ -147,53 +147,12 @@ exports.seed = function(knex, Promise) {
 						description: '10 x 100m tempo',
 						discipline: 'run',
 						date: '1474838220000',
-						coach_id: 1,
+						coach_id: 4,
 						laps: 10,
 						lap_distance: 100,
 						lap_metric: 'meter',
 						athlete_id: 10,
 						data: '22500,22300,21320,21060,22300,21250,21280,22040,21200,21400'
-					}),
-
-				//SBR bike workout
-				knex('Workouts')
-					.insert({
-						id: 12,
-						description: '3 x 2.5 mile tempo',
-						discipline: 'bike',
-						date: '1474378260000',
-						coach_id: 5,
-						laps: 3,
-						lap_distance: 2.5,
-						lap_metric: 'mile',
-						athlete_id: 12,
-						data: '750000,753080,759050'
-					}),
-				knex('Workouts')
-					.insert({
-						id: 13,
-						description: '3 x 2.5 mile tempo',
-						discipline: 'bike',
-						date: '1474378260000',
-						coach_id: 5,
-						laps: 3,
-						lap_distance: 2.5,
-						lap_metric: 'mile',
-						athlete_id: 13,
-						data: '750870,754230,758900'
-					}),
-				knex('Workouts')
-					.insert({
-						id: 14,
-						description: '3 x 2.5 mile tempo',
-						discipline: 'bike',
-						date: '1474378260000',
-						coach_id: 5,
-						laps: 3,
-						lap_distance: 2.5,
-						lap_metric: 'mile',
-						athlete_id: 14,
-						data: '759000,761300,749320'
 					})
 			]);
 		});
