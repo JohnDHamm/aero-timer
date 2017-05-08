@@ -1,0 +1,27 @@
+#athletesSelectBG {
+	min-height: calc(100vh - 62px);
+	padding-bottom: 10px;
+  background: linear-gradient(rgb(255,238,56), rgb(233,67,57));
+}
+
+#groupCheckboxes {
+	padding: 20px 0;
+}
+
+#selectAthletesBtnDiv {
+	padding-top: 20px;
+}
+
+#selectedAthletesContainer {
+	padding: 20px 0 20px 0;
+}
+
+.selAthleteName {
+	font-size: 1.5rem;
+	padding: 7px 0;
+}
+
+div.sepLine {
+	height: 1px;
+	border-bottom: 1px solid $divider-color;
+}

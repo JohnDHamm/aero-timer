@@ -1,0 +1,121 @@
+@import 'vars';
+
+#adminBG {
+	min-height: calc(100vh - 62px);
+	padding: 20px 0 5px 0;
+  background: linear-gradient(rgb(255,238,56), rgb(233,67,57));
+}
+
+.titleMargin {
+	margin: 5px 0;
+}
+
+.groupList {
+	margin: 5px 0;
+	padding: 0;
+}
+
+.editIcon {
+	color: $divider-color;
+}
+
+.editIcon:hover {
+	color: rgba(50, 50, 200, 0.7);
+	transform: scale(1.25);
+	cursor: pointer;
+}
+
+.removeIcon {
+	font-size: 1.5rem;
+	color: $divider-color;
+}
+
+.removeIcon:hover {
+	color: rgba(175, 50, 50, 0.7);
+	transform: scale(1.25);
+	cursor: pointer;
+}
+
+.addIcon {
+	color: $divider-color;
+	padding-top: 5px;
+}
+
+.addIcon:hover {
+	color: rgba(50, 100, 50, 0.7);
+	transform: scale(1.25);
+	cursor: pointer;
+}
+
+
+.errorMsg {
+	color: red;
+	font-style: italic;
+	text-align: center;
+	text-shadow: 1px 1px #ddd;
+}
+
+h5.addNew {
+	margin: 15px 0 10px 0;
+	font-style: italic;
+}
+
+.groupInput {
+	margin: 0;
+}
+
+#athletesDiv {
+	position: relative;
+}
+
+.athleteTitles {
+	color: $divider-color;
+	text-decoration: underline;
+}
+
+.athleteList {
+	margin: 5px 10px;
+}
+
+.athleteListRow p {
+	margin: 5px 0px;
+	border-bottom: 1px solid $divider-color;
+}
+
+.displayName {
+	font-style: italic;
+}
+
+.editGroupModal {
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid $divider-color;
+}
+
+p.modalTitle {
+	padding-left: 15px;
+	font-style: italic;
+	color: rgba(0,0,0,.5);
+	font-size: .85rem;
+	margin: 5px 0;
+}
+
+.editAthleteModal {
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid $divider-color;
+}
+
+#deleteAthleteModal {
+	background-color: rgba(0,0,0,0.8);
+	color: #ccc;
+	border: 3px solid rgb(175, 50, 50);
+	border-radius: 4px;
+	position: absolute;
+	z-index: 4;
+	right: 10%;
+	padding: 10px;
+}
+
+.delAthModalText {
+	margin: 3px 0;
+}
+

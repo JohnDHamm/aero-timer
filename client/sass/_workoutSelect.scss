@@ -1,0 +1,61 @@
+#workoutSelectBG {
+	min-height: calc(100vh - 62px);
+	padding-bottom: 10px;
+  background: linear-gradient(rgb(255,238,56), rgb(233,67,57));
+}
+
+#workoutsList {
+	position: relative;
+}
+
+.workoutSection {
+	margin: 3px auto;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.workoutSelectPanel {
+	cursor: pointer;
+}
+
+.selectDate {
+	margin: 5px 0;
+	padding-left: .7rem
+}
+
+.selectGroup {
+	margin: 5px 0;
+	text-align: center;
+}
+
+.selectDiscDiv {
+	text-align: right;
+}
+
+.selectDiscIcon {
+	margin: 5px 0;
+	font-size: 1.25rem;
+	padding-right: .7rem
+}
+
+.selectDesc {
+	font-size: .85rem;
+	margin: 0 auto 5px auto;
+	padding: 0 1rem;
+}
+
+.workoutDeleteIcon {
+	padding-left: 5px;
+	padding-top: 17px;
+}
+
+#deleteWorkoutModal {
+	background-color: rgba(0,0,0,0.8);
+	color: #ccc;
+	border: 3px solid rgb(175, 50, 50);
+	border-radius: 4px;
+	position: absolute;
+	z-index: 4;
+	right: 5px;
+	padding: 10px;
+}
