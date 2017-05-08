@@ -5,7 +5,8 @@ module.exports.up = (knex, Promise) => {
   	table.string('last_name')
   	table.string('email').unique()
   	table.string('password')
-  	table.integer('team_id').references('Teams.id')
+  	table.boolean('admin')
+  	// table.integer('team_id').references('Teams.id')
   })
 };
 

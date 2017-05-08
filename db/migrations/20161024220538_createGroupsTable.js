@@ -3,7 +3,7 @@ module.exports.up = (knex, Promise) => {
   	table.increments() //creates an incrementing id as primary key
   	table.string('group_name')
   	table.string('description')
-  	table.integer('team_id').references('Teams.id')
+  	// table.integer('team_id').references('Teams.id')
   })
 };
 

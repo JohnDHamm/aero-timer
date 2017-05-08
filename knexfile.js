@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './teamtimer.sqlite3'
+      filename: './aerotimer.sqlite3'
     },
     seeds: {
       directory: './db/seeds'
