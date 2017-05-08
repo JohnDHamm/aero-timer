@@ -3,7 +3,7 @@
 app.controller("athletesSelectCtrl", function($scope, WorkoutFactory, UserFactory, DbFactory, $location){
 
 	const currentCoach = UserFactory.getCurrentCoach();
-	DbFactory.getGroupsByTeam(currentCoach.team_id)
+	DbFactory.getGroups()
 		.then((groupsArray) => {
 			$scope.allGroups = groupsArray;
 		})
@@ -24,7 +24,6 @@ app.controller("athletesSelectCtrl", function($scope, WorkoutFactory, UserFactor
 
 	$scope.selectGroups = () => {
 		$scope.groupsSelected = true;
-
 		//loop through selectedGroups, get athletes, add to array
 		for (let i = 0; i < $scope.selectedGroups.length; i++) {
 			DbFactory
@@ -36,13 +35,11 @@ app.controller("athletesSelectCtrl", function($scope, WorkoutFactory, UserFactor
 		}
 	}
 
-
 	$scope.deselectAthlete = (athlete, athleteArr) => {
 		let index = athleteArr.indexOf(athlete);
 		$scope.selectedAthletes.splice(index, 1);
 		$scope.apply;
 	}
-
 
 	$scope.saveSelectedAthletes = () => {
 		WorkoutFactory.setSelectedAthletes($scope.selectedAthletes);

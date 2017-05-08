@@ -23,31 +23,31 @@ app.factory("DbFactory", function($q, $http) {
 				.then(({data}) => data ? resolve(data) : reject(null))
 		)
 
-	const getTeams = () =>
-		$q((resolve, reject) =>
-			$http
-				.get(`/api/getTeams`)
-				.then(({data}) => data ? resolve(data) : reject(null))
-		)
+	// const getTeams = () =>
+	// 	$q((resolve, reject) =>
+	// 		$http
+	// 			.get(`/api/getTeams`)
+	// 			.then(({data}) => data ? resolve(data) : reject(null))
+	// 	)
 
-	const getTeamName = team_id =>
-		$q((resolve, reject) =>
-			$http
-				.get(`/api/getTeamName/${team_id}`)
-				.then(({data}) => data ? resolve(data) : reject(null))
-		)
+	// const getTeamName = team_id =>
+	// 	$q((resolve, reject) =>
+	// 		$http
+	// 			.get(`/api/getTeamName/${team_id}`)
+	// 			.then(({data}) => data ? resolve(data) : reject(null))
+	// 	)
 
-	const addTeam = teamObj =>
-		$q((resolve, reject) =>
-			$http
-				.post(`/api/addTeam`, teamObj)
-				.then(({data}) => data ? resolve(data) : reject(null))
-		)
+	// const addTeam = teamObj =>
+	// 	$q((resolve, reject) =>
+	// 		$http
+	// 			.post(`/api/addTeam`, teamObj)
+	// 			.then(({data}) => data ? resolve(data) : reject(null))
+	// 	)
 
-	const getGroupsByTeam = team_id =>
+	const getGroups = () =>
 		$q((resolve, reject) =>
 			$http
-				.get(`/api/getGroups/${team_id}`)
+				.get(`/api/getGroups`)
 				.then(({data}) => data ? resolve(data) : reject(null))
 		)
 
@@ -79,10 +79,10 @@ app.factory("DbFactory", function($q, $http) {
 				.then(({data}) => data ? resolve(data) : reject(null))
 		)
 
-	const getAthletesByTeam = team_id =>
+	const getAthletes = () =>
 		$q((resolve, reject) =>
 			$http
-				.get(`/api/getAthletes/Team/${team_id}`)
+				.get(`/api/getAthletes`)
 				.then(({data}) => data ? resolve(data) : reject(null))
 		)
 
@@ -150,6 +150,6 @@ app.factory("DbFactory", function($q, $http) {
 		)
 
 
-	return { getAllCoaches, getCoach, addCoach, getTeams, getTeamName, addTeam, getGroupsByTeam, addGroup, saveEditedGroup, deleteGroup, getAthletesByGroup, getAthletesByTeam, addAthlete, saveEditedAthlete, deleteWorkoutsByAthlete, deleteAthlete, saveWorkout, getWorkoutsByDate, getWorkoutsByCoach, getWorkoutsByAthlete, deleteWorkoutsByDate }
+	return { getAllCoaches, getCoach, addCoach, getGroups, addGroup, saveEditedGroup, deleteGroup, getAthletesByGroup, getAthletes, addAthlete, saveEditedAthlete, deleteWorkoutsByAthlete, deleteAthlete, saveWorkout, getWorkoutsByDate, getWorkoutsByCoach, getWorkoutsByAthlete, deleteWorkoutsByDate }
 
 });

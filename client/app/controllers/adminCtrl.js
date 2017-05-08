@@ -26,13 +26,14 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			$scope.team_id = currentCoach.team_id;
 			$scope.coachName = currentCoach.first_name;
 
-			return Promise.all([DbFactory.getTeamName(team_id), DbFactory.getGroupsByTeam(team_id), DbFactory.getAthletesByTeam(team_id)]);
+			return Promise.all([DbFactory.getGroups(), DbFactory.getAthletes()]);
 
 		})
-		.then(([team_name, groups, athletes]) => {
-			$scope.teamName = team_name[0].team_name;
+		.then(([groups, athletes]) => {
+			$scope.teamName = 'AERO, dammit';
 			$scope.groups = groups;
-			checkForGroup();
+			// checkForGroup();
+			console.log("athletes", athletes);
 			$scope.athletes = formatPace(athletes);
 		})
 		.then(() => {
@@ -83,7 +84,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	}
 
 	const reloadAthletes = () => {
-		DbFactory.getAthletesByTeam($scope.team_id)
+		DbFactory.getAthletes()
 			.then((athletes) => {
 				$scope.athletes = formatPace(athletes);
 				$scope.newAthlete_first_name = "";
@@ -97,15 +98,15 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			})
 	}
 
-	const checkForGroup = () => {
-		if ($scope.groups[0] === undefined) {
-			$scope.msg = "There must be at least one group to save athlete!"
-			$scope.showMsg = true;
-		} else {
-			$scope.msg = null;
-			$scope.showMsg = false;
-		}
-	}
+	// const checkForGroup = () => {
+	// 	if ($scope.groups[0] === undefined) {
+	// 		$scope.msg = "There must be at least one group to save athlete!"
+	// 		$scope.showMsg = true;
+	// 	} else {
+	// 		$scope.msg = null;
+	// 		$scope.showMsg = false;
+	// 	}
+	// }
 
 	const formatPace = (athletesArray) => {
 		for ( let i = 0; i < athletesArray.length; i++) {
