@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 1,
 						lap_metric: 'mile',
 						athlete_id: 1,
-						data: '510000,520000,515000,505000,500000'
+						data: '[510000,520000,515000,505000,500000]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 1,
 						lap_metric: 'mile',
 						athlete_id: 2,
-						data: '513000,520040,515300,502100,490000'
+						data: '[513000,520040,515300,502100,490000]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 1,
 						lap_metric: 'mile',
 						athlete_id: 3,
-						data: '520400,510750,515070,515003,504700'
+						data: '[520400,510750,515070,515003,504700]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -56,7 +56,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 1,
 						lap_metric: 'mile',
 						athlete_id: 4,
-						data: '513000,522100,509000,505320,506800'
+						data: '[513000,522100,509000,505320,506800]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -69,7 +69,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 1,
 						lap_metric: 'mile',
 						athlete_id: 11,
-						data: '530000,566000,534000,505450,570000'
+						data: '[530000,566000,534000,505450,570000]'
 					}),
 
 				//AERO workout #2 4x2mi bike, CoachTest  - Comp
@@ -84,7 +84,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 2,
 						lap_metric: 'mile',
 						athlete_id: 5,
-						data: '515600,522100,516700,543000'
+						data: '[515600,522100,516700,543000]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -97,7 +97,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 2,
 						lap_metric: 'mile',
 						athlete_id: 6,
-						data: '513700,523040,505300,502900'
+						data: '[513700,523040,505300,502900]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -110,7 +110,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 2,
 						lap_metric: 'mile',
 						athlete_id: 7,
-						data: '520000,516000,534500,523450'
+						data: '[520000,516000,534500,523450]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -123,7 +123,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 2,
 						lap_metric: 'mile',
 						athlete_id: 8,
-						data: '522300,520000,552900,534050'
+						data: '[522300,520000,552900,534050]'
 					}),
 
 
@@ -139,7 +139,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 100,
 						lap_metric: 'meter',
 						athlete_id: 9,
-						data: '20000,20200,20340,20100,20500,20050,20270,21340,20600,20400'
+						data: '[20000,20200,20340,20100,20500,20050,20270,21340,20600,20400]'
 					}),
 				knex('Workouts')
 					.insert({
@@ -152,7 +152,7 @@ exports.seed = function(knex, Promise) {
 						lap_distance: 100,
 						lap_metric: 'meter',
 						athlete_id: 10,
-						data: '22500,22300,21320,21060,22300,21250,21280,22040,21200,21400'
+						data: '[22500,22300,21320,21060,22300,21250,21280,22040,21200,21400]'
 					})
 			]);
 		});

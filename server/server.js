@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const config = require('../knexfile').development
+const config = require('../db/knexfile').development
 const knex = require('knex')(config)
 
 const bodyParser = require('body-parser')

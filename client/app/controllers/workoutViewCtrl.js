@@ -26,7 +26,7 @@ app.controller("workoutViewCtrl", function($scope, $routeParams, DbFactory, Time
 		$scope.description = workouts[0].description;
 		$scope.lap_metric = workouts[0].lap_metric;
 		$scope.metricAbrv = WorkoutViewFactory.makeMetricAbrv($scope.lap_metric);
-		$scope.lap_distance = workouts[0].lap_distance;
+		$scope.lap_distance = WorkoutViewFactory.formatLapDist(workouts[0].lap_distance);
 		lapDistConv = WorkoutViewFactory.convertDistance($scope.lap_distance, $scope.discipline, $scope.lap_metric);
 		$scope.paceMetricLabel = WorkoutViewFactory.setPaceMetric($scope.discipline);
 	}
@@ -86,7 +86,7 @@ app.controller("workoutViewCtrl", function($scope, $routeParams, DbFactory, Time
 
 	const calcTimes = (laps, array) => {
 		const totalTime = array.reduce((a, b) => a + b);
-		const totalDist = (laps * $scope.lap_distance).toFixed(2);
+		const totalDist = WorkoutViewFactory.formatLapDist((laps * $scope.lap_distance).toFixed(2));
 		const avgTime = totalTime / laps;
 		const formatArray = formatTimes([totalTime, avgTime])
 		const calcObj = {};
