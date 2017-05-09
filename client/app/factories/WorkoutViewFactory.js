@@ -86,16 +86,6 @@ app.factory("WorkoutViewFactory", function($q) {
 		return athletesArray;
 	}
 
-	// const buildLapTimesArray = (workout) => {
-	// 	// const newArray = workout.data.split(",");
-	// 	// const newArray = workout.data
-	// 	// const parsedArray = newArray.map((each) => {
-	// 	// 	return parseInt(each);
-	// 	// })
-	// 	// return parsedArray;
-	// 	return workout.data
-	// }
-
 	return { convertDistance, makeMetricAbrv, setPaceMetric, createAthletesArray };
 
 });

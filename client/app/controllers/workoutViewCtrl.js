@@ -13,7 +13,6 @@ app.controller("workoutViewCtrl", function($scope, $routeParams, DbFactory, Time
 
 	DbFactory.getWorkoutsByDate(date)
 		.then((workouts) => {
-			// console.log("workouts", workouts);
 			setWorkoutData(workouts);
 			setAthleteData(workouts);
 		})

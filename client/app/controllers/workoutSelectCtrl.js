@@ -40,13 +40,13 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 					newObj.discIcon = DisplayFactory.getDiscIcon(workouts[j].discipline);
 					// newObj.group_name = workouts[j].group_name;
 					newObj.date = workouts[j].date;
-					newObj.formattedDate = TimeFormatFactory.dateFormatter(workouts[j].date);
+					newObj.formattedDate = TimeFormatFactory.dateFormatter(parseInt(workouts[j].date));
 				}
 			}
 			//push newObj to filteredWorkouts array
 			filteredWorkouts.push(newObj);
 		}
-
+		console.log("filteredWorkouts", filteredWorkouts);
 		return filteredWorkouts;
 	};
 
