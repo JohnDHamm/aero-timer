@@ -379,7 +379,8 @@ div.sepLine {
 #timerBG {
   min-height: calc(100vh - 77px);
   padding: 20px 0 5px 0;
-  background: linear-gradient(#ffee38, #e94339); }
+  background: linear-gradient(#ffee38, #e94339);
+  position: relative; }
 
 #topTimingBar {
   background-color: #000;
@@ -482,5 +483,38 @@ div.sepLine {
 
 .lapPaceSlower {
   color: red; }
+
+#savingModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding-top: 35vh; }
+
+.savingIcons i {
+  font-size: 2.5rem;
+  margin: 0 10px; }
+
+.saveIcon:first-child {
+  animation: iconSize 0.5s infinite alternate; }
+
+.saveIcon:nth-child(2) {
+  animation: iconSize 0.5s 0.2s infinite alternate; }
+
+.saveIcon:last-child {
+  animation: iconSize 0.5s 0.4s infinite alternate; }
+
+@keyframes iconSize {
+  from {
+    transform: scale(1);
+    opacity: 1; }
+  to {
+    transform: scale(0.5);
+    opacity: 0.5; } }
 
 /*# sourceMappingURL=main.css.map */
