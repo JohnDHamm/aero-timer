@@ -86,6 +86,14 @@ app.factory("WorkoutViewFactory", function($q) {
 		return athletesArray;
 	}
 
-	return { convertDistance, makeMetricAbrv, setPaceMetric, createAthletesArray };
+	const formatLapDist = (lap_distance) => {
+		const frac = lap_distance - Math.trunc(lap_distance);
+		if (frac === 0) {
+			return Math.trunc(lap_distance)
+		}
+		return lap_distance;
+	}
+
+	return { convertDistance, makeMetricAbrv, setPaceMetric, createAthletesArray, formatLapDist };
 
 });
