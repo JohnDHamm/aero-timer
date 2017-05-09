@@ -2,6 +2,7 @@
 	min-height: calc(100vh - 77px);
 	padding: 20px 0 5px 0;
   background: linear-gradient(rgb(255,238,56), rgb(233,67,57));
+  position: relative;
 }
 
 #topTimingBar {
@@ -96,7 +97,6 @@
 	padding-right: .5rem;
 }
 
-
 .lastLapPaceDiv {
 	text-align: right;
 	margin: 5px 0 0 0;
@@ -130,4 +130,26 @@
 
 .lapPaceSlower {
 	color: red;
+}
+
+#savingModal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	z-index: 2;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	padding-top: 40vh;
+}
+
+.savingText {
+	animation: textFade 0.5s infinite alternate;
+}
+
+@keyframes textFade {
+	from {opacity: 1}
+	to {opacity: 0.3}
 }

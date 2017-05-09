@@ -10,6 +10,7 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 
 	$scope.athleteArray = [];
 	$scope.timerOn = false;
+	$scope.showSavingModal = false;
 
 	$scope.paceMetricLabel = WorkoutViewFactory.setPaceMetric(workoutParams.discipline);
 	const lapDistConv = WorkoutViewFactory.convertDistance(workoutParams.lap_distance, workoutParams.discipline, workoutParams.lap_metric);
@@ -146,16 +147,24 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 	}
 
 	const stop = function() {
+		$scope.showSavingModal = true;
 		clearInterval(interval);
 		interval = null;
 		Promise.resolve()
 			.then(() => createWorkouts($scope.athleteArray))
 			.then((finalWorkouts) => saveWorkouts(finalWorkouts))
 			.then((data) => {
+				pause();
+				$scope.showSavingModal = false;
 				$location.path(`/workoutview/${workoutParams.date}`);
 				$scope.$apply();
 			})
 			.catch(console.error)
+	}
+
+	const pause = () => {
+		var currentTime = new Date().getTime();
+		while (currentTime + 1500 >= new Date().getTime()) {};
 	}
 
 	$scope.cancel = function() {
