@@ -164,7 +164,7 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 
 	const pause = () => {
 		var currentTime = new Date().getTime();
-		while (currentTime + 1500 >= new Date().getTime()) {};
+		while (currentTime + 2000 >= new Date().getTime()) {};
 	}
 
 	$scope.cancel = function() {
