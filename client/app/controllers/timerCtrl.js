@@ -63,7 +63,7 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 			var newWorkoutObj = {};
 			newWorkoutObj.athlete_id = athleteArray[i].id;
 			const trueLapTimeArray = convertLapTimes(athleteArray[i].lapTimesArray);
-			newWorkoutObj.data = trueLapTimeArray;
+			newWorkoutObj.data = JSON.stringify(trueLapTimeArray);
 			newWorkoutsArray.push(newWorkoutObj)
 		}
 		const finalWorkouts = addCommonWorkoutData(newWorkoutsArray)
@@ -75,12 +75,12 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 		for (let i = 0; i < array.length - 1; i++) {
 			trueArray.push(array[i + 1] - array[i]);
 		}
-		return trueArray.join();
+		return trueArray
 	}
 
 	const addCommonWorkoutData = (newWorkoutsArray) => {
 		for (var i = 0; i < newWorkoutsArray.length; i++) {
-			newWorkoutsArray[i].date = workoutParams.date;
+			newWorkoutsArray[i].date = parseInt(workoutParams.date);
 			newWorkoutsArray[i].coach_id = workoutParams.coach_id;
 			newWorkoutsArray[i].description = workoutParams.description;
 			newWorkoutsArray[i].discipline = workoutParams.discipline;
