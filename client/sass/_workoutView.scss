@@ -1,0 +1,154 @@
+#workoutViewBG {
+	min-height: calc(100vh - 77px);
+	padding: 20px 0 5px 0;
+  background: linear-gradient(rgb(255,238,56), rgb(233,67,57));
+}
+
+#topWorkoutBar {
+	background-color: #000;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	color: #fff;
+}
+
+#lapsTotal {
+	background-color: rgb(55,179,74);
+}
+
+#distText{
+	margin: 10px 0 0 0;
+	font-size: 2rem;
+	padding-left: .25rem;
+}
+
+.discIcon {
+	margin: 16px 0 0 0;
+	font-size: 1.75rem;
+}
+
+.workoutViewDate {
+	margin: 25px 0 0 0;
+	font-size: .8rem;
+	text-align: right;
+	padding-right: .5rem;
+}
+
+.workoutViewDesc {
+	margin: 0 auto;
+	padding: 0 10px 5px 10px;
+	color: #aaa;
+}
+
+#nameBar {
+	margin-bottom: 10px;
+}
+
+.nameBarText {
+	margin: 0;
+	text-align: center;
+	color: #fff;
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.nameBarArrow {
+	margin: 0;
+	text-align: center;
+	color: #fff;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.nameBarArrow:hover {
+	cursor: pointer;
+}
+
+.athleteNavBtn {
+	width: 39px;
+	height: 39px;
+}
+
+.athleteNavDiv {
+	text-align: center;
+}
+
+.lapSection {
+	margin: 3px auto;
+	background-color: rgba(0,0,0,.8);
+	border-radius: 2px;
+	color: #fff;
+	font-size: 1.5rem;
+}
+
+.lapNumDiv {
+	margin: 5px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgba(0,0,0,.8);
+}
+
+.lapNum {
+	margin: 5px 0;
+}
+
+.lapTime {
+	padding-left: 1rem;
+	margin: 10px 0;
+}
+
+.timeRight {
+	text-align: right;
+	padding-right: 1rem;
+	margin: 10px 0;
+}
+
+.lapMS {
+	font-size: 1.25rem;
+}
+
+.paceMetric {
+	font-size: 1rem;
+	color: #bbb;
+}
+
+.summaryContainer {
+	margin: 10px auto;
+	background-color: rgba(0,0,0,.5);
+	border-radius: 2px;
+	color: #fff;
+	font-size: 1.2rem;
+}
+
+.sumTitle {
+	padding-left: .8rem;
+	color: #ddd;
+}
+
+.sumTitleSpan {
+	font-size: 1rem;
+}
+
+.sumTopRow {
+	margin: 7px 0 2px 0;
+}
+
+.sumDivider {
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+	margin: 3px auto;
+}
+
+.sumBtmRow {
+	margin: 2px 0 7px 0;
+}
+
+.rightAlign {
+	text-align: right;
+	padding-right: 1rem;
+}
+
+.summaryMs {
+	font-size: 1rem;
+}
+
+.sumLabel {
+	font-size: .8rem;
+	color: #bbb;
+}
