@@ -78,7 +78,7 @@ app.factory("WorkoutViewFactory", function($q) {
 		const athletesArray = [];
 		workouts.forEach(workout => {
 			let buildObj = {};
-			const lapTimesArray = buildLapTimesArray(workout);
+			const lapTimesArray = workout.data;
 			buildObj.lapTimes = lapTimesArray;
 			buildObj.name = workout.display_name;
 			athletesArray.push(buildObj);
@@ -86,13 +86,15 @@ app.factory("WorkoutViewFactory", function($q) {
 		return athletesArray;
 	}
 
-	const buildLapTimesArray = (workout) => {
-		const newArray = workout.data.split(",");
-		const parsedArray = newArray.map((each) => {
-			return parseInt(each);
-		})
-		return parsedArray;
-	}
+	// const buildLapTimesArray = (workout) => {
+	// 	// const newArray = workout.data.split(",");
+	// 	// const newArray = workout.data
+	// 	// const parsedArray = newArray.map((each) => {
+	// 	// 	return parseInt(each);
+	// 	// })
+	// 	// return parsedArray;
+	// 	return workout.data
+	// }
 
 	return { convertDistance, makeMetricAbrv, setPaceMetric, createAthletesArray };
 
