@@ -22,18 +22,12 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		.then(() => UserFactory.getCurrentCoach())
 		.then((coach) => {
 			const currentCoach = coach;
-			const team_id = currentCoach.team_id;
-			$scope.team_id = currentCoach.team_id;
 			$scope.coachName = currentCoach.first_name;
-
 			return Promise.all([DbFactory.getGroups(), DbFactory.getAthletes()]);
-
 		})
 		.then(([groups, athletes]) => {
 			$scope.teamName = 'AERO, dammit';
 			$scope.groups = groups;
-			// checkForGroup();
-			console.log("athletes", athletes);
 			$scope.athletes = formatPace(athletes);
 		})
 		.then(() => {
@@ -41,12 +35,10 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		})
 		.catch(console.err)
 
-
 	$scope.addGroup = () => {
 		const newGroup = {
 			group_name: $scope.newGroup_name,
 			description: $scope.newGroup_desc,
-			team_id: $scope.team_id
 		};
 		DbFactory.addGroup(newGroup)
 			.then(() => {
@@ -55,18 +47,15 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	}
 
 	const reloadGroups = () => {
-		DbFactory.getGroupsByTeam($scope.team_id)
+		DbFactory.getGroups()
 			.then((groups) => {
 				$scope.groups = groups;
 				$scope.newGroup_desc = "";
 				$scope.newGroup_name = "";
-				checkForGroup();
 			})
 	}
 
 	$scope.addAthlete = () => {
-		checkForGroup();
-
 		const newAthlete = {
 			first_name: $scope.newAthlete_first_name,
 			last_name: $scope.newAthlete_last_name,
@@ -97,16 +86,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 				$scope.group_id = "";
 			})
 	}
-
-	// const checkForGroup = () => {
-	// 	if ($scope.groups[0] === undefined) {
-	// 		$scope.msg = "There must be at least one group to save athlete!"
-	// 		$scope.showMsg = true;
-	// 	} else {
-	// 		$scope.msg = null;
-	// 		$scope.showMsg = false;
-	// 	}
-	// }
 
 	const formatPace = (athletesArray) => {
 		for ( let i = 0; i < athletesArray.length; i++) {

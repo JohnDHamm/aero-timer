@@ -23,27 +23,6 @@ app.factory("DbFactory", function($q, $http) {
 				.then(({data}) => data ? resolve(data) : reject(null))
 		)
 
-	// const getTeams = () =>
-	// 	$q((resolve, reject) =>
-	// 		$http
-	// 			.get(`/api/getTeams`)
-	// 			.then(({data}) => data ? resolve(data) : reject(null))
-	// 	)
-
-	// const getTeamName = team_id =>
-	// 	$q((resolve, reject) =>
-	// 		$http
-	// 			.get(`/api/getTeamName/${team_id}`)
-	// 			.then(({data}) => data ? resolve(data) : reject(null))
-	// 	)
-
-	// const addTeam = teamObj =>
-	// 	$q((resolve, reject) =>
-	// 		$http
-	// 			.post(`/api/addTeam`, teamObj)
-	// 			.then(({data}) => data ? resolve(data) : reject(null))
-	// 	)
-
 	const getGroups = () =>
 		$q((resolve, reject) =>
 			$http

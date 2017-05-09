@@ -17,33 +17,6 @@ app.use(bodyParser.json())
 
 // APIs
 
-// app.get('/api/getTeams', (req, res) => {
-// 	knex('Teams')
-// 		.select('*')
-// 		.orderBy('team_name')
-// 		.then((data) => {
-// 			res.json(data)
-// 		})
-// })
-
-// app.get('/api/getTeamName/:team_id', (req, res) => {
-// 	const team_id = req.params.team_id
-// 	knex('Teams')
-// 		.select('Teams.team_name')
-// 		.where('id', team_id)
-// 		.then((data) => {
-// 			res.json(data)
-// 		})
-// })
-
-// app.post('/api/addTeam', (req, res) => {
-// 	knex('Teams')
-// 		.insert(req.body)
-// 		.then((data) => {
-// 			res.json(data) //returns new id#
-// 		})
-// })
-
 app.get('/api/getAllCoaches', (req, res) => {
 	knex('Coaches')
 		.select('*')
@@ -62,16 +35,6 @@ app.get('/api/getCoach/:coach_id', (req, res) => {
 		})
 })
 
-// app.get('/api/getCoaches/Team/:team_id', (req, res) => {
-// 	const team_id = req.params.team_id
-// 	knex('Coaches')
-// 		.select('*')
-// 		.where('team_id', team_id)
-// 		.then((data) => {
-// 			res.json(data)
-// 		})
-// })
-
 app.post('/api/addCoach', (req, res) => {
 	knex('Coaches')
 		.insert(req.body)
@@ -81,10 +44,8 @@ app.post('/api/addCoach', (req, res) => {
 })
 
 app.get('/api/getGroups', (req, res) => {
-	// const team_id = req.params.team_id
 	knex('Groups')
 		.select('*')
-		// .where('team_id', team_id)
 		.orderBy('group_name')
 		.then((data) => {
 			res.json(data)
@@ -124,9 +85,7 @@ app.get('/api/getAthletes', (req, res) => {
 	const team_id = req.params.team_id
 	knex('Athletes')
 		.join('Groups', 'Athletes.group_id', 'Groups.id')
-		// .join('Teams', 'Groups.team_id', 'Teams.id')
 		.select('Athletes.*', 'Groups.group_name')
-		// .where('Teams.id', team_id)
 		.orderBy('Athletes.display_name')
 		.then((data) => {
 			res.json(data)
