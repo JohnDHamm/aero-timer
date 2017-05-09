@@ -1,7 +1,7 @@
 {
-  "name": "team-timer",
+  "name": "aero-timer",
   "version": "1.0.0",
-  "description": "Back End capstone project",
+  "description": "AERO timer app",
   "main": "server.js",
   "engines": {
     "node": "6"
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JohnDHamm/team-timer.git"
+    "url": "git+https://github.com/JohnDHamm/aero-timer.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JohnDHamm/team-timer/issues"
+    "url": "https://github.com/JohnDHamm/aero-timer/issues"
   },
-  "homepage": "https://github.com/JohnDHamm/team-timer#readme",
+  "homepage": "https://github.com/JohnDHamm/aero-timer#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "dotenv": "^4.0.0",
