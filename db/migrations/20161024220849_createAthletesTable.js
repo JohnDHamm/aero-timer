@@ -6,7 +6,7 @@ module.exports.up = (knex, Promise) => {
   	table.string('display_name').unique()
   	table.integer('age')
     table.integer('swim_pace')
-    table.integer('bike_pace')
+    table.decimal('bike_pace')
   	table.integer('run_pace')
   	table.integer('group_id').references('Groups.id')
   })
