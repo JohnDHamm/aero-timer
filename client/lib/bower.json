@@ -1,6 +1,6 @@
 {
   "name": "lib",
-  "homepage": "https://github.com/JohnDHamm/team-timer",
+  "homepage": "https://github.com/JohnDHamm/aero-timer",
   "authors": [
     "John Hamm <johndhamm1@gmail.com>"
   ],
@@ -15,6 +15,9 @@
     "tests"
   ],
   "dependencies": {
-    "materialize": "^0.97.7"
+    "ngstorage": "^0.3.11",
+    "angular": "1.5.8",
+    "angular-route": "1.5.8",
+    "angular-material": "1.1.1"
   }
 }
