@@ -6,6 +6,10 @@
 .navBtn {
   border: 1px solid #555; }
 
+img.navAeroLogo {
+  margin: 7px 7px 5px 0;
+  height: 40px; }
+
 #loginBG {
   min-height: calc(100vh);
   background: url(../img/homeBG.png);
