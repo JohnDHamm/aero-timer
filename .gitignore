@@ -40,4 +40,7 @@ jspm_packages
 
 styles
 
-/client/.sass-cache
+client/.sass-cache/*
+
+artwork
+
