@@ -7,13 +7,11 @@
 	</div>
 
 	<div layout="row" flex layout-align="center">
-		<p class="coachBtnDesc">Add, remove, or edit athletes or groups</p>
+		<p class="coachBtnDesc">Start a new workout</p>
 	</div>
 	<div layout="row" flex="60" flex-offset="20" flex-gt-sm="40" flex-offset-gt-sm="30" layout-align="center" class="coachButton">
-		<a flex="100" href="#/admin" class="coachLink">
-			<div>
-				<p class="coachBtnText">ADMIN</p>
-			</div>
+		<a flex="100" href="#/workoutsetup" class="coachLink">
+			<p class="coachBtnText">TIMER</p>
 		</a>
 	</div>
 
@@ -26,13 +24,17 @@
 		</a>
 	</div>
 
-	<div layout="row" flex layout-align="center">
-		<p class="coachBtnDesc">Start a new workout</p>
-	</div>
-	<div layout="row" flex="60" flex-offset="20" flex-gt-sm="40" flex-offset-gt-sm="30" layout-align="center" class="coachButton">
-		<a flex="100" href="#/workoutsetup" class="coachLink">
-			<p class="coachBtnText">TIMER</p>
-		</a>
+	<div id="admin" hide-xs>
+		<div layout="row" flex layout-align="center">
+			<p class="coachBtnDesc">Add, remove, or edit athletes or groups</p>
+		</div>
+		<div layout="row" flex="60" flex-offset="20" flex-gt-sm="40" flex-offset-gt-sm="30" layout-align="center" class="coachButton">
+			<a flex="100" href="#/admin" class="coachLink">
+				<div>
+					<p class="coachBtnText">ADMIN</p>
+				</div>
+			</a>
+		</div>
 	</div>
 
 </div>

@@ -38,6 +38,9 @@ jspm_packages
 
 .env
 
-styles
+client/.sass-cache/*
 
-/client/.sass-cache
+artwork
+
+archiveCode
+

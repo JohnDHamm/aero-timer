@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactory, DbFactory, TimerFactory){
+app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactory, DbFactory, TimerFactory, $mdToast){
 
 	const athletesDiv = document.getElementById('athletesDiv');
 	let deleteAthleteModal = document.getElementById('deleteAthleteModal');
@@ -10,7 +10,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	});
 
 	$scope.groups === [];
-	$scope.showMsg = false;
 	$scope.showEditGroupModal = false;
 	$scope.editGroup = {};
 	let notEmptyGroup = false;
@@ -26,7 +25,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			return Promise.all([DbFactory.getGroups(), DbFactory.getAthletes()]);
 		})
 		.then(([groups, athletes]) => {
-			$scope.teamName = 'AERO, dammit';
 			$scope.groups = groups;
 			$scope.athletes = formatPace(athletes);
 		})
@@ -42,6 +40,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		};
 		DbFactory.addGroup(newGroup)
 			.then(() => {
+				saveChangeToast();
 				reloadGroups();
 			})
 	}
@@ -68,6 +67,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		};
 		DbFactory.addAthlete(newAthlete)
 			.then((data) => {
+				saveChangeToast();
 				reloadAthletes();
 			})
 	}
@@ -116,7 +116,10 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	$scope.saveEditedGroup = () => {
 		$scope.showEditGroupModal = false;
 		DbFactory.saveEditedGroup($scope.editGroup)
-			.then(() => reloadGroups())
+			.then(() => {
+				saveChangeToast();
+				reloadGroups();
+			})
 			.then(() => reloadAthletes())
 	}
 
@@ -134,13 +137,16 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			}
 		}
 		if (notEmptyGroup) {
-			$scope.msg = "Cannot delete group because at least one athlete belongs to the group!"
-			$scope.showMsg = true;
+			$mdToast.show(
+	      $mdToast.simple()
+	        .textContent('Cannot delete group because at least one athlete belongs to the group!')
+	        // .position('top right')
+	        .hideDelay(3500)
+	    );
 		} else {
-			$scope.msg = "";
-			$scope.showMsg = false;
 			DbFactory.deleteGroup(id)
 				.then(() => {
+					saveChangeToast();
 					reloadGroups();
 				})
 		}
@@ -164,6 +170,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		$scope.showEditAthleteModal = false;
 		DbFactory.saveEditedAthlete($scope.editAthlete)
 			.then(() => {
+				saveChangeToast();
 				reloadAthletes();
 			})
 	}
@@ -193,6 +200,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 				} else {
 					DbFactory.deleteAthlete($scope.athleteToDeleteId)
 								.then(() => {
+									saveChangeToast();
 									reloadAthletes();
 								})
 				}
@@ -201,6 +209,15 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 
 	$scope.cancelDeleteAthlete = () => {
 		$scope.showDeleteAthleteModal = false;
+	}
+
+	const saveChangeToast = () => {
+		$mdToast.show(
+	      $mdToast.simple()
+	        .textContent('Changes saved!')
+	        .position('bottom right')
+	        .hideDelay(2000)
+	    );
 	}
 
 });

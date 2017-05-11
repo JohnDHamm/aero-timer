@@ -6,16 +6,22 @@
 .navBtn {
   border: 1px solid #555; }
 
+img.navAeroLogo {
+  margin: 7px 7px 5px 0;
+  height: 40px; }
+
 #loginBG {
   min-height: calc(100vh);
   background: url(../img/homeBG.png);
   background-size: cover;
   background-position: center; }
 
-#loginTitle h2 {
-  margin: 20px 0 0 0; }
-#loginTitle h4 {
-  margin: 10px 0 0 0; }
+#logoDiv {
+  padding-top: 20px; }
+
+img.loginAeroLogo {
+  width: 100%;
+  height: 100%; }
 
 .noBtmMargin {
   margin-bottom: 0; }
@@ -31,11 +37,8 @@
   margin-bottom: 10px; }
 
 .instructText {
-  font-size: .8rem;
+  font-size: .9rem;
   font-style: italic; }
-
-.teamName {
-  margin: 0 0 10px 0; }
 
 #coachBG {
   min-height: calc(100vh - 52px);
@@ -69,12 +72,21 @@ a.coachLink {
   color: #000;
   margin: 0; }
 
+#admin {
+  padding-bottom: 30px; }
+
 #adminBG {
   min-height: calc(100vh - 62px);
-  padding: 20px 0 5px 0;
+  padding: 10px 0 5px 0;
   background: linear-gradient(#ffee38, #e94339); }
 
-.titleMargin {
+.turnPhone {
+  margin: 20px auto;
+  padding: 0 10px;
+  text-align: center; }
+
+.adminTitleText {
+  color: rgba(0, 0, 0, 0.6);
   margin: 5px 0; }
 
 .groupList {
