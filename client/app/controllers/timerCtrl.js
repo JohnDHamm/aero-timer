@@ -186,8 +186,13 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 
 				const lastLapTime = elapsedTime - thisAthlete.lapTimesArray[thisAthlete.lap - 1];
 				const lastLapPace = calcLapPace(lastLapTime);
-				thisAthlete.lastLapPaceMain = lastLapPace.lapPaceMain + '.';
-				thisAthlete.lastLapPaceDec = lastLapPace.lapPaceDec;
+				thisAthlete.lastLapPaceMain = lastLapPace.lapPaceMain;
+				if (workoutParams.discipline === 'bike') {
+					thisAthlete.lastLapPaceMain += '.';
+					thisAthlete.lastLapPaceDec = lastLapPace.lapPaceDec;
+				} else {
+					thisAthlete.lastLapPaceDec = '';
+				}
 
 				if (thisAthlete.lap > 1) {
 					const currentLap = thisAthlete.lap;
