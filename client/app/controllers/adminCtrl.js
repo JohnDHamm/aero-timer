@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactory, DbFactory, TimerFactory){
+app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactory, DbFactory, TimerFactory, $mdToast){
 
 	const athletesDiv = document.getElementById('athletesDiv');
 	let deleteAthleteModal = document.getElementById('deleteAthleteModal');
@@ -10,7 +10,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	});
 
 	$scope.groups === [];
-	$scope.showMsg = false;
 	$scope.showEditGroupModal = false;
 	$scope.editGroup = {};
 	let notEmptyGroup = false;
@@ -133,17 +132,18 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			}
 		}
 		if (notEmptyGroup) {
-			$scope.msg = "Cannot delete group because at least one athlete belongs to the group!"
-			$scope.showMsg = true;
+			$mdToast.show(
+	      $mdToast.simple()
+	        .textContent('Cannot delete group because at least one athlete belongs to the group!')
+	        .position('top right')
+	        .hideDelay(3500)
+	    );
 		} else {
-			$scope.msg = "";
-			$scope.showMsg = false;
 			DbFactory.deleteGroup(id)
 				.then(() => {
 					reloadGroups();
 				})
 		}
-		notEmptyGroup = false;
 	}
 
 	$scope.athleteEdit = (id) => {
