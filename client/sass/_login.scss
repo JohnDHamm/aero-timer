@@ -7,13 +7,13 @@
   background-position: center;
 }
 
-#loginTitle {
-	h2 {
-		margin: 20px 0 0 0;
-	}
-	h4 {
-		margin: 10px 0 0 0;
-	}
+#logoDiv {
+	padding-top: 20px;
+}
+
+img.loginAeroLogo {
+	width: 100%;
+	height: 100%;
 }
 
 .noBtmMargin {
@@ -34,10 +34,6 @@
 }
 
 .instructText {
-	font-size: .8rem;
+	font-size: .9rem;
 	font-style: italic;
-}
-
-.teamName {
-	margin: 0 0 10px 0;
 }
