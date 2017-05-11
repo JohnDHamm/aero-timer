@@ -2,8 +2,12 @@
 
 #adminBG {
 	min-height: calc(100vh - 62px);
-	padding: 20px 0 5px 0;
+	padding: 10px 0 5px 0;
   background: linear-gradient(rgb(255,238,56), rgb(233,67,57));
+}
+
+.adminTitleText {
+	color: rgba(0,0,0,.6)
 }
 
 .titleMargin {
