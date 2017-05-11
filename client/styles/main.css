@@ -72,6 +72,9 @@ a.coachLink {
   color: #000;
   margin: 0; }
 
+#admin {
+  padding-bottom: 30px; }
+
 #adminBG {
   min-height: calc(100vh - 62px);
   padding: 10px 0 5px 0;
