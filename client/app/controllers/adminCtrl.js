@@ -26,7 +26,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			return Promise.all([DbFactory.getGroups(), DbFactory.getAthletes()]);
 		})
 		.then(([groups, athletes]) => {
-			// $scope.teamName = 'AERO, dammit';
 			$scope.groups = groups;
 			$scope.athletes = formatPace(athletes);
 		})
