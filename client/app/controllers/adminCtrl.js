@@ -40,6 +40,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		};
 		DbFactory.addGroup(newGroup)
 			.then(() => {
+				saveChangeToast();
 				reloadGroups();
 			})
 	}
@@ -66,6 +67,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		};
 		DbFactory.addAthlete(newAthlete)
 			.then((data) => {
+				saveChangeToast();
 				reloadAthletes();
 			})
 	}
@@ -114,7 +116,10 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	$scope.saveEditedGroup = () => {
 		$scope.showEditGroupModal = false;
 		DbFactory.saveEditedGroup($scope.editGroup)
-			.then(() => reloadGroups())
+			.then(() => {
+				saveChangeToast();
+				reloadGroups();
+			})
 			.then(() => reloadAthletes())
 	}
 
@@ -135,15 +140,17 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			$mdToast.show(
 	      $mdToast.simple()
 	        .textContent('Cannot delete group because at least one athlete belongs to the group!')
-	        .position('top right')
+	        // .position('top right')
 	        .hideDelay(3500)
 	    );
 		} else {
 			DbFactory.deleteGroup(id)
 				.then(() => {
+					saveChangeToast();
 					reloadGroups();
 				})
 		}
+		notEmptyGroup = false;
 	}
 
 	$scope.athleteEdit = (id) => {
@@ -163,6 +170,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		$scope.showEditAthleteModal = false;
 		DbFactory.saveEditedAthlete($scope.editAthlete)
 			.then(() => {
+				saveChangeToast();
 				reloadAthletes();
 			})
 	}
@@ -192,6 +200,7 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 				} else {
 					DbFactory.deleteAthlete($scope.athleteToDeleteId)
 								.then(() => {
+									saveChangeToast();
 									reloadAthletes();
 								})
 				}
@@ -200,6 +209,15 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 
 	$scope.cancelDeleteAthlete = () => {
 		$scope.showDeleteAthleteModal = false;
+	}
+
+	const saveChangeToast = () => {
+		$mdToast.show(
+	      $mdToast.simple()
+	        .textContent('Changes saved!')
+	        .position('bottom right')
+	        .hideDelay(2000)
+	    );
 	}
 
 });
