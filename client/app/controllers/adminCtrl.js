@@ -20,8 +20,13 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	Promise.resolve()
 		.then(() => UserFactory.getCurrentCoach())
 		.then((coach) => {
-			const currentCoach = coach;
-			$scope.coachName = currentCoach.first_name;
+			// console.log("coach", coach.admin);
+			if (coach.admin !== true) {
+				// console.log("you don't belong here!" );
+				$location.path('/login');
+			}
+			// const currentCoach = coach;
+			// $scope.coachName = currentCoach.first_name;
 			return Promise.all([DbFactory.getGroups(), DbFactory.getAthletes()]);
 		})
 		.then(([groups, athletes]) => {
