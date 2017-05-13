@@ -5,6 +5,10 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 	const currentCoach = UserFactory.getCurrentCoach();
 	$scope.coach = currentCoach.first_name;
 
+	if (currentCoach.admin === undefined) {
+		$location.path('/login');
+	}
+
 	$scope.showDeleteWorkoutModal = false;
 	const workoutsListDiv = document.getElementById('workoutsList');
 	let delWorkoutsModal = document.getElementById('deleteWorkoutModal');
