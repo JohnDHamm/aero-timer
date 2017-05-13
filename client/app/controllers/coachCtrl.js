@@ -1,8 +1,12 @@
 "use strict";
 
-app.controller("coachCtrl", function($scope, UserFactory){
+app.controller("coachCtrl", function($scope, UserFactory, $location){
 
 	const currentCoach = UserFactory.getCurrentCoach();
 	$scope.coach = currentCoach.first_name;
+
+	if (currentCoach.admin === undefined) {
+		$location.path('/login');
+	}
 
 });
