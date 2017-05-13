@@ -1,12 +1,14 @@
 module.exports.up = (knex, Promise) => {
   return knex.schema.createTable('Coaches', table => {
-  	table.increments() //creates an incrementing id as primary key
-  	table.string('first_name')
-  	table.string('last_name')
-  	table.string('email').unique()
-  	table.string('password')
-  	table.boolean('admin')
-  	// table.integer('team_id').references('Teams.id')
+  	table.increments();
+  	table.string('login').unique();
+    table.string('first_name');
+    table.string('last_name');
+    table.string('email');
+  	table.string('password');
+    table.boolean('admin');
+    table.boolean('workout_admin');
+  	table.boolean('archive');;
   })
 };
 
