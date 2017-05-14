@@ -16,13 +16,20 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 		let modalOffsetTop = e.target.offsetTop - 20;
 		delWorkoutsModal.style.top = modalOffsetTop + "px";
 	})
+	const swimFilterIcon = document.getElementById('filterIcon--swim');
+	const bikeFilterIcon = document.getElementById('filterIcon--bike');
+	const runFilterIcon = document.getElementById('filterIcon--run');
+
 
 	DbFactory.getWorkoutsByCoach(currentCoach.coach_id)
 		.then((workouts) => {
-			$scope.workouts = filterWorkouts(workouts);
+			const allCoachWorkouts = filterWorkoutsByDate(workouts);
+			$scope.workouts = allCoachWorkouts;
 		})
 
-	const filterWorkouts = (workouts) => {
+
+
+	const filterWorkoutsByDate = (workouts) => {
 		const allDates = [];
 		for (let i = 0; i < workouts.length; i++) {
 			allDates.push(workouts[i].date)
@@ -31,26 +38,46 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 		    return array.indexOf (value) == index;
 		});
 
-		//loop thru filteredDates
 		const filteredWorkouts = [];
 		for (let i = 0; i < filteredDates.length; i++) {
-			//create new obj
 			const newObj = {};
-			//loop thru workouts
 			for (let j = 0; j < workouts.length; j++) {
-				//if date matches, record details to new obj
 				if (workouts[j].date === filteredDates[i]) {
 					newObj.description = workouts[j].description;
 					newObj.discIcon = DisplayFactory.getDiscIcon(workouts[j].discipline);
+					newObj.discipline = workouts[j].discipline;
 					newObj.date = workouts[j].date;
 					newObj.formattedDate = TimeFormatFactory.dateFormatter(parseInt(workouts[j].date));
+					newObj.show = true;
 				}
 			}
-			//push newObj to filteredWorkouts array
 			filteredWorkouts.push(newObj);
 		}
 		return filteredWorkouts;
 	};
+
+	$scope.filter = (discipline) => {
+		switch (discipline) {
+			case 'swim':
+				swimFilterIcon.classList.toggle('inactiveIcon');
+				break;
+			case 'bike':
+				bikeFilterIcon.classList.toggle('inactiveIcon');
+				break;
+			case 'run':
+				runFilterIcon.classList.toggle('inactiveIcon');
+				break;
+		}
+		filterByDisc(discipline);
+	}
+
+	const filterByDisc = (disc) => {
+		for (let i = 0; i < $scope.workouts.length; i++) {
+			if ($scope.workouts[i].discipline === disc) {
+				$scope.workouts[i].show = !$scope.workouts[i].show;
+			}
+		}
+	}
 
 	$scope.goToWorkout = (workoutDate) => {
 		$location.path(`/workoutview/${workoutDate}`)

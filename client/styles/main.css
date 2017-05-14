@@ -345,6 +345,25 @@ div.sepLine {
   padding-bottom: 10px;
   background: linear-gradient(#ffee38, #e94339); }
 
+#coachNameBar h3 {
+  margin: 10px 0 5px 0; }
+
+#filterIcons {
+  margin-bottom: 10px; }
+
+.filterIcon {
+  font-size: 1.5rem;
+  margin: 0 7px;
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer; }
+
+.inactiveIcon {
+  color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%; }
+
 #workoutsList {
   position: relative; }
 
