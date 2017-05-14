@@ -70,7 +70,6 @@ exports.seed = function(knex, Promise) {
 				//AERO workout #2 4x2mi bike, CoachTest  - Comp
 				// knex('Workouts')
 				// 	.insert({
-				// 		id: 6,
 				// 		description: '4 x 2 mi build',
 				// 		discipline: 'bike',
 				// 		date: '1474226580000',
@@ -83,7 +82,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Workouts')
 				// 	.insert({
-				// 		id: 7,
 				// 		description: '4 x 2 mi build',
 				// 		discipline: 'bike',
 				// 		date: '1474226580000',
@@ -96,7 +94,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Workouts')
 				// 	.insert({
-				// 		id: 8,
 				// 		description: '4 x 2 mi build',
 				// 		discipline: 'bike',
 				// 		date: '1474226580000',
@@ -109,7 +106,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Workouts')
 				// 	.insert({
-				// 		id: 9,
 				// 		description: '4 x 2 mi build',
 				// 		discipline: 'bike',
 				// 		date: '1474226580000',
@@ -125,7 +121,6 @@ exports.seed = function(knex, Promise) {
 				//AERO workout #3 10x100m, CoachTest, all Dev
 				// knex('Workouts')
 				// 	.insert({
-				// 		id: 10,
 				// 		description: '10 x 100m tempo',
 				// 		discipline: 'run',
 				// 		date: '1474838220000',
@@ -138,7 +133,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Workouts')
 				// 	.insert({
-				// 		id: 11,
 				// 		description: '10 x 100m tempo',
 				// 		discipline: 'run',
 				// 		date: '1474838220000',

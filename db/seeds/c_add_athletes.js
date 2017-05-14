@@ -4,7 +4,6 @@ exports.seed = function(knex, Promise) {
 	return knex('Athletes').del()
 		.then(function () {
 			return Promise.all([
-				//add AERO athletes
 				knex('Athletes')
 					.insert({
 						first_name: 'Makenna',
@@ -59,10 +58,42 @@ exports.seed = function(knex, Promise) {
 						swim_pace: 112000,
 						bike_pace: 16.9,
 						run_pace: 502000
+					}),
+				knex('Athletes')
+					.insert({
+						first_name: 'Clara',
+						last_name: 'Early',
+						display_name: 'Clara',
+						age: 12,
+						group_id: 1,
+						swim_pace: 116000,
+						bike_pace: 17.1,
+						run_pace: 486000
+					}),
+				knex('Athletes')
+					.insert({
+						first_name: 'Miles',
+						last_name: 'Butler',
+						display_name: 'Miles B',
+						age: 12,
+						group_id: 1,
+						swim_pace: 110000,
+						bike_pace: 17.5,
+						run_pace: 503000
+					}),
+				knex('Athletes')
+					.insert({
+						first_name: 'Ruth',
+						last_name: 'Giblin',
+						display_name: 'Ruth',
+						age: 13,
+						group_id: 1,
+						swim_pace: 123000,
+						bike_pace: 16.8,
+						run_pace: 563000
 					})
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 6,
 				// 		first_name: 'Devan',
 				// 		last_name: 'Reilly',
 				// 		display_name: 'Devan',
@@ -74,7 +105,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 7,
 				// 		first_name: 'Gus',
 				// 		last_name: 'McGowan',
 				// 		display_name: 'Gus',
@@ -86,19 +116,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 8,
-				// 		first_name: 'Clara',
-				// 		last_name: 'Early',
-				// 		display_name: 'Clara',
-				// 		age: 12,
-				// 		group_id: 1,
-				// 		swim_pace: 116000,
-				// 		bike_pace: 17.1,
-				// 		run_pace: 486000
-				// 	}),
-				// knex('Athletes')
-				// 	.insert({
-				// 		id: 9,
 				// 		first_name: 'Seamus',
 				// 		last_name: 'Havron',
 				// 		display_name: 'Seamus',
@@ -110,7 +127,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 10,
 				// 		first_name: 'Emily',
 				// 		last_name: 'Butler',
 				// 		display_name: 'EmilyMicah',
@@ -122,31 +138,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 11,
-				// 		first_name: 'Miles',
-				// 		last_name: 'Butler',
-				// 		display_name: 'Miles B',
-				// 		age: 12,
-				// 		group_id: 1,
-				// 		swim_pace: 110000,
-				// 		bike_pace: 17.5,
-				// 		run_pace: 503000
-				// 	}),
-				// knex('Athletes')
-				// 	.insert({
-				// 		id: 12,
-				// 		first_name: 'Ruth',
-				// 		last_name: 'Giblin',
-				// 		display_name: 'Ruth',
-				// 		age: 13,
-				// 		group_id: 1,
-				// 		swim_pace: 123000,
-				// 		bike_pace: 16.8,
-				// 		run_pace: 563000
-				// 	}),
-				// knex('Athletes')
-				// 	.insert({
-				// 		id: 13,
 				// 		first_name: 'Darby',
 				// 		last_name: 'Mooney',
 				// 		display_name: 'Darby',
@@ -158,7 +149,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 14,
 				// 		first_name: 'Searcy',
 				// 		last_name: 'Mooney',
 				// 		display_name: 'Searcy',
@@ -170,7 +160,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 15,
 				// 		first_name: 'Jackson',
 				// 		last_name: 'Lee',
 				// 		display_name: 'Jackson',
@@ -182,7 +171,6 @@ exports.seed = function(knex, Promise) {
 				// 	}),
 				// knex('Athletes')
 				// 	.insert({
-				// 		id: 16,
 				// 		first_name: 'Ryan',
 				// 		last_name: 'Lee',
 				// 		display_name: 'Ryan',

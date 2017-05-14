@@ -40,7 +40,7 @@ exports.seed = function(knex, Promise) {
 				knex('Coaches')
 					.insert({
 						login: 'test',
-				    first_name: 'Test',
+				    first_name: 'Testy',
 				    last_name: 'McTesterson',
 				    email: 'temp@temp.com',
 				    password: 'temppass',
