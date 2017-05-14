@@ -8,7 +8,6 @@ exports.seed = function(knex, Promise) {
 				//AERO workout #1 5x1mi run, CoachTest - HPT
 				knex('Workouts')
 					.insert({
-						id: 1,
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
@@ -21,7 +20,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Workouts')
 					.insert({
-						id: 2,
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
@@ -34,7 +32,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Workouts')
 					.insert({
-						id: 3,
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
@@ -47,7 +44,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Workouts')
 					.insert({
-						id: 4,
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',
@@ -60,7 +56,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Workouts')
 					.insert({
-						id: 5,
 						description: '5 x 1mi race pace',
 						discipline: 'run',
 						date: '1473952500000',

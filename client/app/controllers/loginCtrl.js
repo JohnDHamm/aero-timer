@@ -13,7 +13,7 @@ app.controller("loginCtrl", function($scope, UserFactory, DbFactory, $location){
 
 	//*********** temp auto login for development *********
 	$scope.loginName = 'test';
-	$scope.password = 'testpass';
+	$scope.password = 'temppass';
 
 
 	$scope.login = () => {

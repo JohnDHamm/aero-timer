@@ -7,7 +7,6 @@ exports.seed = function(knex, Promise) {
 				//add AERO athletes
 				knex('Athletes')
 					.insert({
-						id: 1,
 						first_name: 'Makenna',
 						last_name: 'Reilly',
 						display_name: 'Makenna',
@@ -19,7 +18,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Athletes')
 					.insert({
-						id: 2,
 						first_name: 'Lucy',
 						last_name: 'Rutherford',
 						display_name: 'Lucy',
@@ -31,7 +29,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Athletes')
 					.insert({
-						id: 3,
 						first_name: 'Trinity',
 						last_name: 'Waters',
 						display_name: 'Trinity',
@@ -43,7 +40,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Athletes')
 					.insert({
-						id: 4,
 						first_name: 'Wellington',
 						last_name: 'McKinney',
 						display_name: 'Wellington',
@@ -55,7 +51,6 @@ exports.seed = function(knex, Promise) {
 					}),
 				knex('Athletes')
 					.insert({
-						id: 5,
 						first_name: 'Maya',
 						last_name: 'Reilly',
 						display_name: 'Maya',

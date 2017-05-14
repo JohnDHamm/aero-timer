@@ -9,6 +9,7 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 		$location.path('/login');
 	}
 
+	$scope.noWorkouts = false;
 	$scope.showDeleteWorkoutModal = false;
 	const workoutsListDiv = document.getElementById('workoutsList');
 	let delWorkoutsModal = document.getElementById('deleteWorkoutModal');
@@ -23,6 +24,7 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 
 	DbFactory.getWorkoutsByCoach(currentCoach.coach_id)
 		.then((workouts) => {
+			if (workouts.length === 0) $scope.noWorkouts = true;
 			const allCoachWorkouts = filterWorkoutsByDate(workouts);
 			$scope.workouts = allCoachWorkouts;
 		})
