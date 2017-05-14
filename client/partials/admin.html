@@ -133,7 +133,7 @@
 			  	<i ng-click="athleteEdit(athlete.id)" class="material-icons editIcon">edit</i>
 			  </div>
 			  <div flex>
-				  <i ng-click="deleteAthlete(athlete.id)" class="material-icons removeIcon">remove_circle_outline</i>
+				  <i ng-click="showDeleteAthleteConfirm($event, athlete.id)" class="material-icons removeIcon">remove_circle_outline</i>
 				</div>
 			</div>
 		</div>
@@ -214,23 +214,7 @@
 			<div flex>
 			  <i ng-click="addAthlete()" class="material-icons addIcon">add_circle_outline</i>
 			</div>
-
 		</div>
-
-		<div id="deleteAthleteModal" ng-show="showDeleteAthleteModal" layout="column" flex="50" flex-offset="25">
-			<div layout="row" flex layout-align="center">
-				<p class="delAthModalText">Deleting athlete will remove athlete's data from all past workouts.</p>
-			</div>
-			<div layout="row" flex layout-align="center">
-				<p class="delAthModalText">Are you sure?</p>
-			</div>
-			<div layout="row" flex layout-align="center">
-				<md-button class="md-raised" ng-click="removeAthlete()">delete athlete</md-button>
-				<md-button class="md-raised" ng-click="cancelDeleteAthlete()">cancel</md-button>
-			</div>
-		</div>
-
 	</div> <!-- end of athletesDiv -->
-
 
 </div>

@@ -93,7 +93,8 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 				removeWorkoutFromArray(date);
 			})
 		}, function() {
-		});
+			//cancelled
+			});
 	};
 
 	const removeWorkoutFromArray = (date) => {
