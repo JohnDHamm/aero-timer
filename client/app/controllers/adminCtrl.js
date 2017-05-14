@@ -1,27 +1,20 @@
 "use strict";
 
-app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactory, DbFactory, TimerFactory, $mdToast){
-
-	const athletesDiv = document.getElementById('athletesDiv');
-	let deleteAthleteModal = document.getElementById('deleteAthleteModal');
-	athletesDiv.addEventListener('click', function(e) {
-		let modalOffsetTop = e.target.offsetTop - 40;
-		deleteAthleteModal.style.top = modalOffsetTop + 'px';
-	});
+app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactory, DbFactory, TimerFactory, $mdToast, $mdDialog){
 
 	$scope.groups === [];
 	$scope.showEditGroupModal = false;
 	$scope.editGroup = {};
 	let notEmptyGroup = false;
 	$scope.showEditAthleteModal = false;
-	$scope.showDeleteAthleteModal = false;
 	$scope.editAthlete = {};
 
 	Promise.resolve()
 		.then(() => UserFactory.getCurrentCoach())
 		.then((coach) => {
-			const currentCoach = coach;
-			$scope.coachName = currentCoach.first_name;
+			if (coach.admin !== true) {
+				$location.path('/login');
+			}
 			return Promise.all([DbFactory.getGroups(), DbFactory.getAthletes()]);
 		})
 		.then(([groups, athletes]) => {
@@ -101,7 +94,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		const sec = parseInt(paceTimeArray[1]);
 		const avgPaceMs = Math.trunc((min * 60) + sec) * 1000;
 		return avgPaceMs;
-
 	}
 
 	$scope.groupEdit = (id) => {
@@ -129,7 +121,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	}
 
 	$scope.deleteGroup = (id) => {
-		// check if group has no athletes
 		for (let i = 0; i < $scope.athletes.length; i++) {
 			if ($scope.athletes[i].group_id === id) {
 				notEmptyGroup = true;
@@ -140,7 +131,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 			$mdToast.show(
 	      $mdToast.simple()
 	        .textContent('Cannot delete group because at least one athlete belongs to the group!')
-	        // .position('top right')
 	        .hideDelay(3500)
 	    );
 		} else {
@@ -180,37 +170,6 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 		reloadAthletes();
 	}
 
-	$scope.deleteAthlete = (id) => {
-		$scope.showDeleteAthleteModal = true;
-		$scope.athleteToDeleteId = id;
-	}
-
-	$scope.removeAthlete = () => {
-		$scope.showDeleteAthleteModal = false;
-		DbFactory.getWorkoutsByAthlete($scope.athleteToDeleteId)
-			.then((data) => {
-				if (data[0]) {
-					DbFactory.deleteWorkoutsByAthlete($scope.athleteToDeleteId)
-						.then(() => {
-							DbFactory.deleteAthlete($scope.athleteToDeleteId)
-								.then(() => {
-									reloadAthletes();
-								})
-						})
-				} else {
-					DbFactory.deleteAthlete($scope.athleteToDeleteId)
-								.then(() => {
-									saveChangeToast();
-									reloadAthletes();
-								})
-				}
-			})
-	}
-
-	$scope.cancelDeleteAthlete = () => {
-		$scope.showDeleteAthleteModal = false;
-	}
-
 	const saveChangeToast = () => {
 		$mdToast.show(
 	      $mdToast.simple()
@@ -219,5 +178,39 @@ app.controller("adminCtrl", function($scope, $routeParams, $location, UserFactor
 	        .hideDelay(2000)
 	    );
 	}
+
+	$scope.showDeleteAthleteConfirm = function(ev, id) {
+		var confirm = $mdDialog.confirm()
+					.title('Are you sure?')
+					.textContent("Deleting an athlete will remove athlete's data from all past workouts.")
+					.ariaLabel('Delete athlete?')
+					.targetEvent(ev)
+					.ok('delete athlete')
+					.cancel('cancel');
+
+		$mdDialog.show(confirm).then(function() {
+			DbFactory.getWorkoutsByAthlete(id)
+				.then((data) => {
+					if (data[0]) {
+						DbFactory.deleteWorkoutsByAthlete(id)
+							.then(() => {
+								DbFactory.deleteAthlete(id)
+									.then(() => {
+										saveChangeToast();
+										reloadAthletes();
+									})
+							})
+					} else {
+						DbFactory.deleteAthlete(id)
+									.then(() => {
+										saveChangeToast();
+										reloadAthletes();
+									})
+					}
+				})
+		}, function() {
+			//cancelled
+			});
+	};
 
 });

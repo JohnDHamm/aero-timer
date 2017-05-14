@@ -6,39 +6,47 @@ exports.seed = function(knex, Promise) {
 			return Promise.all([
 				knex('Coaches')
 					.insert({
-						id: 1,
+						login: 'Jen',
 						first_name: 'Jennifer',
 						last_name: 'Gentry',
-						email: 'jen@aero.com',
-						password: 'jenpass',
-						admin: true
+						email: 'temp@temp.com',
+						password: 'temppass',
+						admin: true,
+						workout_admin: true,
+						archive: false
 					}),
 				knex('Coaches')
 					.insert({
-						id: 2,
+						login: 'Jeff',
 				    first_name: 'Jeff',
 				    last_name: 'Reilly',
-				    email: 'jeff@aero.com',
-				    password: 'jeffpass',
-						admin: true
+				    email: 'temp@temp.com',
+				    password: 'temppass',
+						admin: true,
+						workout_admin: true,
+						archive: false
 					}),
 				knex('Coaches')
 					.insert({
-						id: 3,
+						login: 'John',
 				    first_name: 'John',
 				    last_name: 'Hamm',
-				    email: 'john@aero.com',
-				    password: 'johnpass',
-						admin: false
+				    email: 'temp@temp.com',
+				    password: 'temppass',
+						admin: true,
+						workout_admin: true,
+						archive: false
 					}),
 				knex('Coaches')
 					.insert({
-						id: 4,
-				    first_name: 'Test',
+						login: 'test',
+				    first_name: 'Testy',
 				    last_name: 'McTesterson',
-				    email: 'test@aero.com',
-				    password: 'testpass',
-						admin: true
+				    email: 'temp@temp.com',
+				    password: 'temppass',
+						admin: false,
+						workout_admin: true,
+						archive: false
 					})
 			]);
 		});

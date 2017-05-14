@@ -39,7 +39,7 @@ app.post('/api/addCoach', (req, res) => {
 	knex('Coaches')
 		.insert(req.body)
 		.then((data) => {
-			res.json(data) //returns new id#
+			res.json(data)
 		})
 })
 
