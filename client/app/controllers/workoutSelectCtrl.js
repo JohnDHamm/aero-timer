@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, TimeFormatFactory, $location, DisplayFactory){
+app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, TimeFormatFactory, $location, DisplayFactory, $mdDialog){
 
 	const currentCoach = UserFactory.getCurrentCoach();
 	$scope.coach = currentCoach.first_name;
@@ -10,13 +10,6 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 	}
 
 	$scope.noWorkouts = false;
-	$scope.showDeleteWorkoutModal = false;
-	const workoutsListDiv = document.getElementById('workoutsList');
-	let delWorkoutsModal = document.getElementById('deleteWorkoutModal');
-	workoutsListDiv.addEventListener('click', function(e) {
-		let modalOffsetTop = e.target.offsetTop - 20;
-		delWorkoutsModal.style.top = modalOffsetTop + "px";
-	})
 	const swimFilterIcon = document.getElementById('filterIcon--swim');
 	const bikeFilterIcon = document.getElementById('filterIcon--bike');
 	const runFilterIcon = document.getElementById('filterIcon--run');
@@ -37,7 +30,7 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 			allDates.push(workouts[i].date)
 		}
 		const filteredDates = allDates.filter (function (value, index, array) {
-		    return array.indexOf (value) == index;
+				return array.indexOf (value) == index;
 		});
 
 		const filteredWorkouts = [];
@@ -85,10 +78,23 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 		$location.path(`/workoutview/${workoutDate}`)
 	}
 
-	$scope.deleteWorkout = (date) => {
-		$scope.showDeleteWorkoutModal = true;
-		$scope.workoutToDeleteDate = date;
-	}
+	$scope.showDeleteConfirm = function(ev, date) {
+		var confirm = $mdDialog.confirm()
+					.title('Are you sure?')
+					.textContent('Deleting a workout removes all data for this workout for all athletes that were recorded.')
+					.ariaLabel('Delete workout?')
+					.targetEvent(ev)
+					.ok('delete workout')
+					.cancel('cancel');
+
+		$mdDialog.show(confirm).then(function() {
+			DbFactory.deleteWorkoutsByDate(date)
+			.then(() => {
+				removeWorkoutFromArray(date);
+			})
+		}, function() {
+		});
+	};
 
 	const removeWorkoutFromArray = (date) => {
 		for (let i = 0; i < $scope.workouts.length; i++) {
@@ -96,18 +102,6 @@ app.controller("workoutSelectCtrl", function($scope, UserFactory, DbFactory, Tim
 				$scope.workouts.splice(i, 1);
 			}
 		}
-	}
-
-	$scope.removeWorkout = () => {
-		$scope.showDeleteWorkoutModal = false;
-		DbFactory.deleteWorkoutsByDate($scope.workoutToDeleteDate)
-			.then(() => {
-				removeWorkoutFromArray($scope.workoutToDeleteDate);
-			})
-	}
-
-	$scope.cancelDeleteWorkout = () => {
-		$scope.showDeleteWorkoutModal = false;
 	}
 
 });

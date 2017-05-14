@@ -36,17 +36,7 @@
 				</div>
 			</div>
 			<div class="workoutDeleteIcon" hide show-gt-xs flex>
-			  <i ng-click="deleteWorkout(workout.date)" class="material-icons removeIcon">remove_circle_outline</i>
-			</div>
-		</div>
-
-		<div id="deleteWorkoutModal" ng-show="showDeleteWorkoutModal" layout="column" flex="50" flex-offset="25">
-			<div layout="row" flex layout-align="center">
-				<p class="delAthModalText">Are you sure?</p>
-			</div>
-			<div layout="row" flex layout-align="center">
-				<md-button class="md-raised" ng-click="removeWorkout()">delete workout</md-button>
-				<md-button class="md-raised" ng-click="cancelDeleteWorkout()">cancel</md-button>
+			  <i ng-click="showDeleteConfirm($event, workout.date)" class="material-icons removeIcon">remove_circle_outline</i>
 			</div>
 		</div>
 
