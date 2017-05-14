@@ -28,11 +28,11 @@ app.controller("loginCtrl", function($scope, UserFactory, DbFactory, $location){
 		DbFactory.getAllCoaches()
 			.then((coachesArray) => {
 				coachesArray.forEach((coach) => {
-					if (coach.login === userObj.login && coach.password === userObj.password) {
+					if (coach.login === userObj.login && coach.password === userObj.password && coach.archive !== true) {
 						regUser = true;
 						UserFactory.setCurrentCoach(coach);
 						$location.path('/coach');
-					} else if (coach.login === userObj.login) {
+					} else if (coach.login === userObj.login && coach.archive !== true) {
 						$scope.errorMsg = "password is incorrect";
 						regUser = true;
 					}
