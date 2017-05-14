@@ -11,10 +11,6 @@ app.controller("loginCtrl", function($scope, UserFactory, DbFactory, $location){
 	$scope.showCreateTeam = false;
 	$scope.showRegisterForm = false;
 
-	//*********** temp auto login for development *********
-	$scope.loginName = 'test';
-	$scope.password = 'temppass';
-
 
 	$scope.login = () => {
 		let regUser = false;

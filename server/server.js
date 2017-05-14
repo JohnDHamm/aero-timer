@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const config = require('../db/knexfile').development
+const config = require('../db/knexfile').production
 const knex = require('knex')(config)
 
 const bodyParser = require('body-parser')
@@ -39,7 +39,7 @@ app.post('/api/addCoach', (req, res) => {
 	knex('Coaches')
 		.insert(req.body)
 		.then((data) => {
-			res.json(data) //returns new id#
+			res.json(data)
 		})
 })
 
