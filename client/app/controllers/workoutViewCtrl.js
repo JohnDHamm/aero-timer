@@ -60,10 +60,12 @@ app.controller("workoutViewCtrl", function($scope, $routeParams, DbFactory, Time
 	}
 
 	const updateDisplay = (currentAthlete) => {
+		const thisAthleteTotalLaps = athletesArray[currentAthlete].lapTimes.length;
+		$scope.totalLaps = thisAthleteTotalLaps;
 		$scope.displayName = athletesArray[currentAthlete].name;
 		const timesArray = formatTimes(athletesArray[currentAthlete].lapTimes);
-		$scope.displayTimes = makeDisplayArray($scope.totalLaps, timesArray, athletesArray[currentAthlete].lapTimes);
-		$scope.calcTimes = calcTimes($scope.totalLaps, athletesArray[currentAthlete].lapTimes);
+		$scope.displayTimes = makeDisplayArray(thisAthleteTotalLaps, timesArray, athletesArray[currentAthlete].lapTimes);
+		$scope.calcTimes = calcTimes(thisAthleteTotalLaps, athletesArray[currentAthlete].lapTimes);
 	}
 
 	$scope.nextAthlete = () => {

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFactory, TimerFactory, WorkoutViewFactory, TimeFormatFactory){
+app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFactory, TimerFactory, WorkoutViewFactory, TimeFormatFactory, $mdDialog){
 
 	const workoutParams = WorkoutFactory.getCurrentWorkoutParams();
 	const selectedAthletes = WorkoutFactory.getSelectedAthletes();
@@ -64,6 +64,7 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 			var newWorkoutObj = {};
 			newWorkoutObj.athlete_id = athleteArray[i].id;
 			const trueLapTimeArray = convertLapTimes(athleteArray[i].lapTimesArray);
+			newWorkoutObj.laps = trueLapTimeArray.length;
 			newWorkoutObj.data = JSON.stringify(trueLapTimeArray);
 			newWorkoutsArray.push(newWorkoutObj)
 		}
@@ -85,7 +86,6 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 			newWorkoutsArray[i].coach_id = workoutParams.coach_id;
 			newWorkoutsArray[i].description = workoutParams.description;
 			newWorkoutsArray[i].discipline = workoutParams.discipline;
-			newWorkoutsArray[i].laps = workoutParams.laps;
 			newWorkoutsArray[i].lap_distance = workoutParams.lap_distance;
 			newWorkoutsArray[i].lap_metric = workoutParams.lap_metric;
 		}
@@ -167,12 +167,28 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 		while (currentTime + 2000 >= new Date().getTime()) {};
 	}
 
-	$scope.cancel = function() {
+	$scope.cancel = function(ev) {
 		clearInterval(interval);
 		interval = null;
 		$scope.timerOn = false;
-		resetTimer();
-	}
+
+		if (totalLapsReadout.textContent === '0') {
+			resetTimer();
+		} else {
+			var confirm = $mdDialog.confirm()
+				.title('Timer stopped')
+				.textContent("Do you want to save the laps that have been recorded or reset the timer?")
+				.ariaLabel('Save laps?')
+				.targetEvent(ev)
+				.ok('save workout')
+				.cancel('reset timer');
+			$mdDialog.show(confirm).then(function() {
+				stop();
+			}, function() {
+				resetTimer();
+				});
+		}
+	};
 
 	$scope.recordLap = function(index) {
 		if ($scope.timerOn) {
