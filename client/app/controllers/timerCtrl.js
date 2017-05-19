@@ -65,7 +65,7 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 			newWorkoutObj.athlete_id = athleteArray[i].id;
 			const trueLapTimeArray = convertLapTimes(athleteArray[i].lapTimesArray);
 			newWorkoutObj.laps = trueLapTimeArray.length;
-			console.log("newWorkoutObj.laps", newWorkoutObj.laps);
+			// console.log("newWorkoutObj.laps", newWorkoutObj.laps);
 			newWorkoutObj.data = JSON.stringify(trueLapTimeArray);
 			newWorkoutsArray.push(newWorkoutObj)
 		}
@@ -185,12 +185,12 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 					.cancel('reset timer');
 
 		$mdDialog.show(confirm).then(function() {
-			console.log("save all the data!", $scope.athleteArray);
+			// console.log("save all the data!", $scope.athleteArray);
 			stop();
 
 		}, function() {
 			//cancelled
-			console.log("resetting!");
+			// console.log("resetting!");
 			resetTimer();
 			});
 	};
