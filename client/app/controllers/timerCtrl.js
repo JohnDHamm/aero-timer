@@ -172,20 +172,22 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 		interval = null;
 		$scope.timerOn = false;
 
-		var confirm = $mdDialog.confirm()
-					.title('Timer stopped')
-					.textContent("Do you want to save the laps that have been recorded or reset the timer?")
-					.ariaLabel('Save laps?')
-					.targetEvent(ev)
-					.ok('save workout')
-					.cancel('reset timer');
-
-		$mdDialog.show(confirm).then(function() {
-			stop();
-
-		}, function() {
+		if (totalLapsReadout.textContent === '0') {
 			resetTimer();
-			});
+		} else {
+			var confirm = $mdDialog.confirm()
+				.title('Timer stopped')
+				.textContent("Do you want to save the laps that have been recorded or reset the timer?")
+				.ariaLabel('Save laps?')
+				.targetEvent(ev)
+				.ok('save workout')
+				.cancel('reset timer');
+			$mdDialog.show(confirm).then(function() {
+				stop();
+			}, function() {
+				resetTimer();
+				});
+		}
 	};
 
 	$scope.recordLap = function(index) {
