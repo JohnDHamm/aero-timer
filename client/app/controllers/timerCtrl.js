@@ -65,7 +65,6 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 			newWorkoutObj.athlete_id = athleteArray[i].id;
 			const trueLapTimeArray = convertLapTimes(athleteArray[i].lapTimesArray);
 			newWorkoutObj.laps = trueLapTimeArray.length;
-			// console.log("newWorkoutObj.laps", newWorkoutObj.laps);
 			newWorkoutObj.data = JSON.stringify(trueLapTimeArray);
 			newWorkoutsArray.push(newWorkoutObj)
 		}
@@ -87,7 +86,6 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 			newWorkoutsArray[i].coach_id = workoutParams.coach_id;
 			newWorkoutsArray[i].description = workoutParams.description;
 			newWorkoutsArray[i].discipline = workoutParams.discipline;
-			// newWorkoutsArray[i].laps = workoutParams.laps;
 			newWorkoutsArray[i].lap_distance = workoutParams.lap_distance;
 			newWorkoutsArray[i].lap_metric = workoutParams.lap_metric;
 		}
@@ -170,8 +168,6 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 	}
 
 	$scope.cancel = function(ev) {
-
-		//check if no laps recorded?
 		clearInterval(interval);
 		interval = null;
 		$scope.timerOn = false;
@@ -185,18 +181,12 @@ app.controller("timerCtrl", function($q, $scope, $location, DbFactory, WorkoutFa
 					.cancel('reset timer');
 
 		$mdDialog.show(confirm).then(function() {
-			// console.log("save all the data!", $scope.athleteArray);
 			stop();
 
 		}, function() {
-			//cancelled
-			// console.log("resetting!");
 			resetTimer();
 			});
 	};
-
-
-
 
 	$scope.recordLap = function(index) {
 		if ($scope.timerOn) {

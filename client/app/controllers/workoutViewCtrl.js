@@ -33,7 +33,6 @@ app.controller("workoutViewCtrl", function($scope, $routeParams, DbFactory, Time
 
 	const setAthleteData = (workouts) => {
 		athletesArray = WorkoutViewFactory.createAthletesArray(workouts);
-		// console.log("athletesArray", athletesArray);
 		updateDisplay(currentAthlete);
 	}
 
