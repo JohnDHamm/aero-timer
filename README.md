@@ -6,6 +6,16 @@ This app is a specific implementation of a capstone project developed while a st
 * portfolio: http://johndhammcodes.com/projects/timer
 * GitHub repo: https://github.com/JohnDHamm/team-timer
 
+##### _Technologies:_
+* AngularJS
+* PostgreSQL (on Heroku) - converted from SQLite in original version
+* NodeJS
+* ExpressJS
+* KnexJS
+* Angular Material
+* Sass
+* GreenSock (JS animation library)
+
 ###### _Features recently added:_
 1. During a workout, after completing each lap, the display shows the athlete's pace metric for the last lap (minutes/mile for a run, mph for bike, minutes/100yards for swim) as well as a pace differential from the previous lap to inform the coach and athlete whether they are getting slower, faster, or maintaining their goal pace.
 2. When viewing the list of recorded workouts, a coach can filter by discipline by tapping on the discipline icons at the top of the screen, choosing whether to show swim, bike or run workouts, or any combination of the three.
