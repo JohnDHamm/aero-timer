@@ -1,0 +1,11 @@
+{
+  "name": "AERO Timer",
+  "icons": [
+    {
+      "src": "/img/icons/AERO_icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone"
+}
