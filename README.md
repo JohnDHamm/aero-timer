@@ -1,4 +1,4 @@
-# ![alt text](https://github.com/JohnDHamm/aero-timer/raw/master/client/img/icons/AERO_icon-github.png "AERO Timer")aero-timer
+# ![alt text](https://github.com/JohnDHamm/aero-timer/raw/master/client/img/icons/AERO_icon-github.png "AERO Timer") AERO Team Timer
 Timer and organizational app for the AERO youth triathlon team.
 
 This app is a specific implementation of a capstone project developed while a student at Nashville Software School. For more information on the original project, please visit:
