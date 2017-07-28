@@ -1,3 +1,4 @@
+![alt text](https://github.com/JohnDHamm/aero-timer/client/img/icons/AERO_icon.png "AERO Timer")
 # aero-timer
 Timer and organizational app for the AERO youth triathlon team.
 
